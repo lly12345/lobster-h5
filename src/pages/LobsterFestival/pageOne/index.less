@@ -1,0 +1,130 @@
+.pageOne{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    .beer{
+        width: 2.5rem; 
+        margin-bottom: .7rem;
+        box-sizing: border-box; 
+        position: relative;
+        z-index: 1;
+    }
+    .animation-one{
+        animation: animation_rotate 2s ease 2s;
+        animation-fill-mode: forwards;
+        position: absolute;
+        width: 1rem;
+        top: 6.2rem;
+        left: 0;
+        display: flex;
+        align-items: flex-start;
+        
+        .lobster{
+            
+            width: 3.5rem;
+            margin-left: .3rem;
+            margin-top: -.2rem;
+            animation: lob_rotate 2s linear ;
+            animation-fill-mode: forwards
+        }
+        .cap{
+            width: 1rem;
+            transform: rotate(45deg);
+            margin-left: -.6rem;
+            margin-top: .2rem;
+        }
+
+    }
+
+    footer{
+        width: 100%;
+        position: absolute;
+        bottom: .4rem;
+        img{
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transform: scale(1.9);
+        }
+        .wave1{
+            z-index: 3;
+            bottom: 0;
+            animation: wave1 4.5s linear  infinite;
+        }
+        .wave2{
+            z-index: 2;
+            animation: wave2 5s linear  infinite;
+        }
+        .wave3{
+            z-index: 0;
+            bottom: -.5rem;
+            
+            transform: translateY(-6px);
+            animation: wave3 4s linear  infinite;
+        }
+    }
+    
+    
+}
+@keyframes lob_rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(25deg);
+    }
+}
+@keyframes animation_rotate {
+    from {
+        transform: rotate(0);
+        transform-origin: right bottom;
+    }
+    to {
+        transform: rotate(-30deg);
+        transform-origin: right bottom;
+    }
+}
+
+@keyframes wave1 {
+    0%   {
+        transform:scale(1.9) translate(0);
+    }
+    50%  {
+        transform:scale(1.9) translate(15px,10px);
+    }
+    100% {
+        transform:scale(1.9) translate(0);
+    }
+}
+@keyframes wave2 {
+    0%   {
+        transform:scale(1.9) translate(0);
+    }
+    50%  {
+        transform:scale(1.9) translate(15px,10px);
+    }
+    70%  {
+        transform:scale(1.9) translate(0px,10px);
+    }
+    100% {
+        transform:scale(1.9) translate(0);
+    }
+}
+
+@keyframes wave3 {
+    0%   {
+        transform:scale(1.9) translateY(-6px);
+    }
+    50%  {
+        transform:scale(1.9) translate(-10px,5px);
+    }
+    100% {
+        transform:scale(1.9) translateY(-6px);
+    }
+}
+
+
