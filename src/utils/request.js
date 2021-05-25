@@ -2,20 +2,29 @@ import axios from 'axios'
 import { message } from 'antd'
 import { stringify } from 'qs'
 import config from '../../config'
-import { options } from 'less'
 
 const MODE = import.meta.env.MODE
 
+const sign = {
+    platform: 'H5',
+    device: '',
+    version: '0.0.1',
+    token: '',
+}
+
 const getRequest = (method) => {
-    return (url, data, option = {}) => {
+    return (url, data, options = {}) => {
         let base = config[MODE]
         return axios({
             baseURL: base.apiBaseUrl,
             method,
             url,
             ...(method === 'POST' ? { data: options.string ? stringify(data) : data } : {}),
-            params: methods === 'GET' ? data : options.params,
+            params: method === 'GET' ? data : options.params,
             headers: {
+                'activity-id': 2,
+                "encrypt": 0,
+                "sign":  window.localStorage.getItem('sign'),
                 'X-Requested-With': 'XMLHttpRequest',
                 'Content-Type': options.string
                     ? 'application/x-www-form-urlencoded'

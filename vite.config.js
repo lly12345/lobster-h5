@@ -29,10 +29,18 @@ export default defineConfig({
       "utils": path.resolve(__dirname, "src/utils"),
     }
   },
+  build:{
+    rollupOptions: {
+      input: {
+        index: path.resolve(__dirname, 'index.html'),
+        nested: path.resolve(__dirname, 'shop-upload.html')
+      }
+    }
+  },
   server: {
     proxy: {
       '/api': {
-        target: 'http://jsonplaceholder.typicode.com/',
+        target: 'https://h5.fuzhouxiaoyu.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

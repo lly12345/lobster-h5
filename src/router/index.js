@@ -1,5 +1,6 @@
 // router/index.js
-import LobsterFestival from 'pages/LobsterFestival/pageOne'
+import LobsterFestival from 'pages/LobsterFestival/pageEnroll'
+import Upload from '@/components/upload'
  
 
 const routes = [
