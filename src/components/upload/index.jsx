@@ -1,6 +1,8 @@
-import React,{ useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Upload, Modal } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { post } from 'utils/request'
+import './index.less'
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -10,14 +12,19 @@ function getBase64(file) {
     reader.onerror = error => reject(error);
   });
 }
+const imgArr = []
 
 class PicturesWall extends React.Component {
-  state = {
-    previewVisible: false,
-    previewImage: '',
-    previewTitle: '',
-    fileList: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      previewVisible: false,
+      previewImage: '',
+      previewTitle: '',
+      fileList: [],
+    };
+  }
+
 
   handleCancel = () => this.setState({ previewVisible: false });
 
@@ -35,6 +42,35 @@ class PicturesWall extends React.Component {
 
   handleChange = ({ fileList }) => this.setState({ fileList });
 
+  uploadImg = (files) => {
+    console.log(escape);
+
+    // 上传图片的base64编码，调接口后，返回 imageId
+    // post('/upload', params).then(res => {
+    //   console.log(res);
+    // })
+    const formData = new FormData();
+    formData.append('ShopPicture', files.file);
+    post('/upload', formData).then(res => {
+      console.log(res);
+      if (res.success) {
+        const imgItem = {
+          uid: res.data.ShopPicture[0].id,
+          url: res.data.ShopPicture[0].url,
+          name: 'image.png',
+          status: 'done',
+        }
+
+        imgArr.push(imgItem)
+        this.setState({
+          fileList: imgArr
+        })
+        this.props.content(this.state.fileList)
+
+      }
+    })
+  }
+
   render() {
     const { previewVisible, previewImage, fileList, previewTitle } = this.state;
     const uploadButton = (
@@ -46,17 +82,17 @@ class PicturesWall extends React.Component {
     return (
       <>
         <Upload
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
           listType="picture-card"
-          fileList={fileList} 
+          fileList={fileList}
           onPreview={this.handlePreview}
           onChange={this.handleChange}
+          customRequest={this.uploadImg}
         >
-          {fileList.length >= 8 ? null : uploadButton}
+          {fileList.length >= 3 ? null : uploadButton}
         </Upload>
         <Modal
           visible={previewVisible}
-          title={previewTitle} 
+          title={previewTitle}
           footer={null}
           onCancel={this.handleCancel}
         >

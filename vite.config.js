@@ -40,7 +40,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://h5.fuzhouxiaoyu.com',
+        target: 'http://h5.local/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

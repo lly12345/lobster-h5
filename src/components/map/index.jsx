@@ -4,7 +4,7 @@ import logo from '@/assets/lobster/logo.png'
 
 const mapStyle = {
     width: '90%', 
-    height: '200px', 
+    height: '2.5rem', 
     borderRadius: '.2rem',
     overflow: 'hidden',
     margin: '0 auto'
@@ -18,6 +18,7 @@ class Map extends Component {
     }
 
     componentDidMount() {
+        this.initMap(26.08928,119.320658)
         wx.getLocation({
             type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
             success: (res) => {
@@ -28,8 +29,10 @@ class Map extends Component {
                 this.initMap(latitude, longitude)
             },
             fail: err => {
-                console.log(err);
-            }
+                console.log(err); 
+                this.initMap(26.08928,119.320658)
+                
+            }  
         });
 
     }

@@ -1,11 +1,15 @@
 // router/index.js
 import LobsterFestival from 'pages/LobsterFestival/pageEnroll'
-import Upload from '@/components/upload'
+import Index from 'pages/LobsterFestival/JiangXi'
  
 
-const routes = [
+const routes = [{
+  path: '/',
+  redirect: '/enroll',
+  component: Index,
+},
   {
-    path: "/",
+    path: "/enroll",
     component: LobsterFestival
   }
 ];

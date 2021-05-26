@@ -4,7 +4,6 @@ import { post } from 'utils/request'
 import './index.less'
 
 import PageOne from '@/pages/LobsterFestival/pageOne'
-import PageEnroll from '@/pages/LobsterFestival/PageEnroll'
 
 export default function LobsterFestival() {
   console.log('import.meta.env', import.meta.env);
@@ -17,6 +16,6 @@ export default function LobsterFestival() {
     })
   })
   return <div className="app">
-    <PageEnroll></PageEnroll>
+    <PageOne></PageOne>
   </div>
 }

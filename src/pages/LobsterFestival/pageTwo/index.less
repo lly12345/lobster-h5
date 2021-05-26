@@ -1,0 +1,53 @@
+@import '@/styles/common.less';
+
+.pageTwo{
+    .lobster{
+        width: 100%;
+        position: absolute;
+        bottom: 3rem;
+        left: 0;
+        z-index: 9;
+        .longxia1{
+            width: 2.5rem;
+            position: absolute;
+            right: .2rem;
+            z-index: 100;
+            animation:lob_rotate2 3s linear infinite;
+            
+        }
+        .longxia2{
+            width: 2rem;
+            position: absolute;
+            left: .3rem;
+            z-index: 100;
+            animation:lob_rotate1 3s linear infinite;
+            
+        }
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: url('@/assets/lobster/page-two/cloudy.png'), url('@/assets/lobster/page-two/cloudy.png');
+        background-position: 5.8rem, -.2rem 1rem;
+        background-repeat: no-repeat, no-repeat;
+        background-size: 27%,17%;
+        position: relative;
+        z-index: 10;
+        img{
+            max-width: 80%;
+            margin-bottom: .4rem;
+        }
+        .three{
+            width: 45%;
+        }
+    }
+
+    .spindrift{
+        .spindrift2{
+            bottom: 1rem;
+        }
+    }
+
+}
