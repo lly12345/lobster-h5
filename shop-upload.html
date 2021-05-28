@@ -11,9 +11,9 @@
 <body>
     <script>
 
-        if (getQueryVariable('shopId')) {
-            window.localStorage.setItem('shopId', getQueryVariable('shopId'))
-            if (window.localStorage.getItem('uid') || getQueryVariable('id')) {
+        if (getQueryVariable('id')) {
+            window.localStorage.setItem('shopId', getQueryVariable('id'))
+            if (window.localStorage.getItem('uid')) {
                 let shopId = window.localStorage.getItem('shopId')
                 window.location.href = `/longxiajie/?shopId=${shopId}`
             } else {

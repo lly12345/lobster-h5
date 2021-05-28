@@ -29,7 +29,7 @@ class PageOne extends Component {
   }
 
   render() {
-    return <div className="pageOne common animated zoomIn cuxiao">
+    return <div className="p6  pageOne common animated zoomIn cuxiao">
       <header className="headline">
         <CSSTransition
           in={this.props.index == page}

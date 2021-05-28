@@ -35,7 +35,7 @@ class PageOne extends Component {
     }
 
     render() {
-        return <div className={['pageFuJian common', 'animated delay-.2s', this.props.index == page ? "bounceIn" : null].join(' ')}>
+        return <div className={['p6 pageFuJian common', 'animated delay-.2s', this.props.index == page ? "bounceIn" : null].join(' ')}>
             <header className="headline">
                 <CSSTransition
                     in={this.props.index == page}

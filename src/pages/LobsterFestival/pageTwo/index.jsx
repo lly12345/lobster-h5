@@ -53,7 +53,7 @@ class PageTwo extends Component {
                     onEnter={(el) => { }}
                     onEntered={(el) => { this.setState({ logo: true }) }}
                 >
-                    <div className="page common pageTwo ">
+                    <div className="p6 page common pageTwo ">
                         <header className="headline">
                             <CSSTransition
                                 in={this.props.index == page}

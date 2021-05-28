@@ -123,7 +123,7 @@ class pageEnroll extends Component {
   render() {
     return (
 
-      <div className={['pageEnroll', 'animated delay-.2s', this.props.index == page ? "swing" : null].join(' ')}>
+      <div className={[ 'p6 shop-detail pageEnroll', 'animated delay-.2s', this.props.index == page ? "swing" : null].join(' ')}>
         <div className="bg">
           <div className="headline">
             <img className="logo" src={logo} alt="" />

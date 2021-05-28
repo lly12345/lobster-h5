@@ -7,9 +7,20 @@
     justify-content: flex-start;
     align-items: flex-end;
     overflow: hidden;
-    background: url(@/assets/lobster/bg.png) no-repeat;
-    background-position: center;
-    background-size: 100% 100%;
+    background-image: linear-gradient( #063967 30%,  #a0d3b8);
+   .allow{
+       
+       position: absolute;
+       right: 0;
+       top: 50%;
+       transform: translateY(-50%);
+       animation: twinkling 2s linear  infinite;
+       
+       .icon{
+        width: .6rem;
+        
+       }
+   }
     .headline{
         width: 100%;
         padding: .5rem;
@@ -228,7 +239,22 @@
     }
 }
 
-
-
+@keyframes twinkling {
+	0% {
+	opacity:0.2;
+	filter:alpha(opacity=20);
+	transform:scale(1) translateY(-50%);
+}
+50% {
+	opacity:.8;
+	filter:alpha(opacity=50);
+	transform:scale(1) translateY(-50%);
+}
+100% {
+	opacity:0.2;
+	filter:alpha(opacity=20);
+	transform:scale(1) translateY(-50%);
+}
+}
 
 

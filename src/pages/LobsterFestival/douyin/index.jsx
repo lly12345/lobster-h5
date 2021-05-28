@@ -35,7 +35,7 @@ class DouYin extends Component {
 
   render() {
     return (
-      <div className="common pageDouYin page">
+      <div className="p6 common pageDouYin page">
         <header className="headline">
           <CSSTransition
             in={this.props.index == 1}

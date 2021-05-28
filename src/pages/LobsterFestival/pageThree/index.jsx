@@ -34,19 +34,23 @@ class PageThree extends Component {
 
     render() {
         return (
-            <div className="common pageThree page">
+            <div className="p6 common pageThree page">
                 <header className="headline">
-                   
+
                 </header>
-                <div className="container-bg">
-                    <img  className={['headerTitle','animated delay-.6s',this.props.index == 1?"slideInLeft":null].join(' ')} src={headerTitle} alt="" />
-                    <div className="container">
-                        <img  className={['one','animated delay-.6s',this.props.index == 1?"flipInX":null].join(' ')} src={one} alt="" />
-                        <img className={['two','animated delay-.8s',this.props.index == 1?"flipInX":null].join(' ')} src={two} alt="" />
-                        <img className={['three','animated delay-.9s',this.props.index == 1?"flipInX":null].join(' ')} src={three} alt="" />
+                <div className="p6-conteiner">
+                    <div className="container-bg">
+                        <img className={['headerTitle', 'animated delay-.6s', this.props.index == 1 ? "slideInLeft" : null].join(' ')} src={headerTitle} alt="" />
+                        <div className="container">
+                            <img className={['one', 'animated delay-.6s', this.props.index == 1 ? "flipInX" : null].join(' ')} src={one} alt="" />
+                            <img className={['two', 'animated delay-.8s', this.props.index == 1 ? "flipInX" : null].join(' ')} src={two} alt="" />
+                            <img className={['three', 'animated delay-.9s', this.props.index == 1 ? "flipInX" : null].join(' ')} src={three} alt="" />
+                        </div>
+                        <img className={['fonterTitle', 'animated delay-.6s', this.props.index == 1 ? "slideInRight" : null].join(' ')} src={fonterTitle} alt="" />
                     </div>
-                    <img  className={['fonterTitle','animated delay-.6s',this.props.index == 1?"slideInRight":null].join(' ')} src={fonterTitle} alt="" />
+
                 </div>
+
 
                 <div className="spindrift">
                     <img className="spindrift1" src={spindrift1} alt="" />
@@ -63,7 +67,7 @@ class PageThree extends Component {
                     <img className="wave wave3" src={wave3} alt="" />
                 </footer>
             </div>
-        
+
         )
     }
 

@@ -143,7 +143,7 @@ class pageEnroll extends Component {
   render() {
 
     return (
-      <div className="pageEnroll">
+      <div className="p6 pageEnroll enroll">
         <div className="bg">
           <div className="headline">
             <img className="logo" src={logo} alt="" />

@@ -49,7 +49,7 @@ class Gift extends Component {
 
   render() {
     return (
-      <div className="common pageEnroll page gift">
+      <div className="p6 common pageEnroll page gift">
         <header className="headline">
           <CSSTransition
             in={this.props.index == 1}
@@ -66,23 +66,27 @@ class Gift extends Component {
           <img className={['logo', 'animated delay-1s', this.props.index == 1 ? "bounceInDown" : null].join(' ')} src={logo} alt="" />
 
         </header>
-        <div className="content">
-          <div className="title">盲盒奖励</div>
-          <div className="gift-box">
-            {
-              gift.map((item, i) => {
-                return (
-                  <div className={['gift-item', 'animated delay-.6s', this.props.index == page ? "flipInY" : null].join(' ')} key={i}>
-                    <img src={item.url} alt="" />
-                    <div>{item.title}</div>
+        <div className="p6-conteiner">
+          <div className="content">
+            <div className="title">盲盒奖励</div>
+            <div className="gift-box">
+              {
+                gift.map((item, i) => {
+                  return (
+                    <div className={['gift-item', 'animated delay-.6s', this.props.index == page ? "flipInY" : null].join(' ')} key={i}>
+                      <img src={item.url} alt="" />
+                      <div>{item.title}</div>
 
-                  </div>
-                )
-              })
-            }
+                    </div>
+                  )
+                })
+              }
+            </div>
+
           </div>
 
         </div>
+
         <div className="middle">
           <img className="beer" src={beerImg} />
         </div>
@@ -91,9 +95,9 @@ class Gift extends Component {
           <img className="spindrift2" src={spindrift2} alt="" />
         </div>
         <div className="lobster">
-            <img className="longxia1" src={longxia1} alt="" />
-            <img className="longxia2" src={longxia2} alt="" />
-          </div>
+          <img className="longxia1" src={longxia1} alt="" />
+          <img className="longxia2" src={longxia2} alt="" />
+        </div>
 
         <footer>
           <img className="wave wave1" src={wave1} alt="" />

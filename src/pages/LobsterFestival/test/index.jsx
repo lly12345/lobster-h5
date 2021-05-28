@@ -50,6 +50,7 @@ class test extends Component {
                     autoplay={false}
                     infinite={false}
                     dots={false}
+                     
                     beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
                     afterChange={index => this.handleChange(index)}
                 >
@@ -59,6 +60,7 @@ class test extends Component {
                     {
                         page
                     }
+                    {/* <JiangXi index={this.state.currentIndex}></JiangXi> */}
                     <LiZhi index={this.state.currentIndex}></LiZhi>
                     <CuXiao index={this.state.currentIndex}></CuXiao>
                     <Gift index={this.state.currentIndex}></Gift>
