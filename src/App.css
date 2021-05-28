@@ -7,6 +7,16 @@ body{
   padding: 0;
   -webkit-text-size-adjust: 100% !important;
 }
-
+p,h2,h6{
+  margin: 0;
+  padding: 0;
+}
+.common{
+  /* height: 100vh;
+  min-height: 800px; */
+}
+.am-wingblank.am-wingblank-lg {
+  margin:0;
+}
 
 

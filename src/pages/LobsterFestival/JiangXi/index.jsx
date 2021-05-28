@@ -23,7 +23,7 @@ import food from '@/assets/lobster/common/food.png'
 import longxia2 from '@/assets/lobster/lobster-second.png'
 
 
-
+const page = 3
 class PageOne extends Component {
     constructor() {
         super();
@@ -35,10 +35,10 @@ class PageOne extends Component {
     }
 
     render() {
-        return <div className="pageFuJian animated zoomIn">
-            <div className="headline">
+        return <div className={['pageJiangXi common', 'animated ', this.props.index == page ? "fadeIn" : null].join(' ')}>
+            <header className="headline">
                 <CSSTransition
-                    in={this.state.title}
+                    in={this.props.index == page}
                     timeout={3000}
                     classNames="title"
                     unmountOnExit
@@ -48,23 +48,16 @@ class PageOne extends Component {
                 >
                     <img className="title animated wobble delay-2s" src={title} alt="" />
                 </CSSTransition>
-                <CSSTransition
-                    in={this.state.logo}
-                    timeout={2000}
-                    classNames="logo"
-                    unmountOnExit
-                    onEntered={(el) => { this.setState({ rightTitle: true }) }}
-                >
-                    <img className="logo" src={logo} alt="" />
-                </CSSTransition>
+                <img className={['logo', 'animated delay-1s', this.props.index == page ? "bounceInDown" : null].join(' ')} src={logo} alt="" />
 
-            </div>
+            </header>
             <div className="info">
-                <img className="one" src={one} alt="" />
-                <img className="two" src={two} alt="" />
-                <img className="three" src={three} alt="" />
-                <img className="food" src={food} alt="" />
-                <img className="four" src={four} alt="" />
+                <img className={['one', 'animated delay-.2s', this.props.index == page ? "slideInRight" : null].join(' ')} src={one} alt="" />
+                <img className={['two', 'animated delay-.4s', this.props.index == page ? "slideInRight" : null].join(' ')} src={two} alt="" />
+                <img className={['three', 'animated delay-.6s', this.props.index == page ? "slideInRight" : null].join(' ')} src={three} alt="" />
+                <img className={['food', 'animated delay-.8s', this.props.index == page ? "flipInX" : null].join(' ')} src={food} alt="" />
+                
+                <img className={['four', 'animated delay-.9s', this.props.index == page ? "slideInRight" : null].join(' ')} src={four} alt="" />
             </div>
             <div className="middle">
                 {/* <img className="ml" src={ml} /> */}

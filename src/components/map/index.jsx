@@ -18,7 +18,7 @@ class Map extends Component {
     }
 
     componentDidMount() {
-        this.initMap(26.08928,119.320658)
+        // this.initMap(26.08928,119.320658)
         wx.getLocation({
             type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
             success: (res) => {
@@ -34,6 +34,7 @@ class Map extends Component {
                 
             }  
         });
+        this.initMap(26.08928,119.320658)
 
     }
 

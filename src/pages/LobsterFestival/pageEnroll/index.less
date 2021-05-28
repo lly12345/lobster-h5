@@ -1,5 +1,9 @@
 @import '@/styles/common.less';
-
+.rotate-circle, .rotate-circle * {
+    
+    display: none;
+}
+ 
 .pageEnroll{
     width: 100%;
     height: 100vh;
@@ -15,7 +19,7 @@
     }
     .content{
         width: 6rem;
-        min-height: 75vh;
+        min-height: 70vh;
         margin-top: .6rem;
         background: rgba(255,255,255,.6);
         border: 7px solid #2b5ca8;
@@ -24,6 +28,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        z-index: 101;
+        
         .info{
 
             h6{
@@ -81,9 +88,24 @@
                 color: gray;
                 margin: .1rem 0 0;
             }
-            .ant-upload-picture-card-wrapper {
-                display: block;
-                margin-top: .2rem;
+            
+            .shop-img{
+                // display: flex;
+                // flex-direction: row;
+                // min-height: 2rem;
+                .am-image-picker{
+                    width: 100%;
+                    
+                }
+                .am-image-picker-list .am-flexbox{
+                    margin-bottom: 6px;
+                    display: flex;
+                    flex-direction: row;
+                }
+                .am-flexbox-item{
+                    width: 2rem;
+                    // height: 2rem;
+                }
             }
         }
         .select-address{

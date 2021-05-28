@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { Upload, Modal } from 'antd';
+// import { Upload, Modal } from 'antd';
+import { ImagePicker, WingBlank, SegmentedControl } from 'antd-mobile';
 import { PlusOutlined } from '@ant-design/icons';
 import { post } from 'utils/request'
 import './index.less'
@@ -43,14 +44,14 @@ class PicturesWall extends React.Component {
   handleChange = ({ fileList }) => this.setState({ fileList });
 
   uploadImg = (files) => {
-    console.log(escape);
+    console.log(files);
 
     // 上传图片的base64编码，调接口后，返回 imageId
     // post('/upload', params).then(res => {
     //   console.log(res);
     // })
     const formData = new FormData();
-    formData.append('ShopPicture', files.file);
+    formData.append('ShopPicture', files[files.length-1].file);
     post('/upload', formData).then(res => {
       console.log(res);
       if (res.success) {
@@ -72,33 +73,16 @@ class PicturesWall extends React.Component {
   }
 
   render() {
-    const { previewVisible, previewImage, fileList, previewTitle } = this.state;
-    const uploadButton = (
-      <div>
-        <PlusOutlined />
-        <div style={{ marginTop: 8 }}>Upload</div>
-      </div>
-    );
     return (
-      <>
-        <Upload
-          listType="picture-card"
-          fileList={fileList}
-          onPreview={this.handlePreview}
-          onChange={this.handleChange}
-          customRequest={this.uploadImg}
-        >
-          {fileList.length >= 3 ? null : uploadButton}
-        </Upload>
-        <Modal
-          visible={previewVisible}
-          title={previewTitle}
-          footer={null}
-          onCancel={this.handleCancel}
-        >
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
-        </Modal>
-      </>
+
+      <ImagePicker
+        files={this.state.fileList}
+        onChange={this.uploadImg}
+        onImageClick={(index, fs) => console.log(index, fs)}
+        multiple={false}
+      />
+
+
     );
   }
 }

@@ -17,43 +17,48 @@ import spindrift1 from '@/assets/lobster/spindrift1.png'
 import spindrift2 from '@/assets/lobster/spindrift2.png'
 
 class PageOne extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log('props',props);
     this.state = {
+      index: props.index,
       title: true,
       logo: false,
       rightTitle: false
     }
   }
 
+
+  
+
   render() {
-    return <div className="pageOne animated zoomIn">
+    return <div  className={['pageOne common','animated ',this.props.index == 0?"zoomIn":null].join(' ')}>
       <div className="headline">
         <CSSTransition
-          in={this.state.title}
+          in={this.props.index == 0}
           timeout={3000}
           classNames="title"
           unmountOnExit
           appear={true}
           onEnter={(el) => { }}
-          onEntered={(el) => { this.setState({ logo: true }) }}
+          onEntered={(el) => { this.setState({ rightTitle: true })}}
         >
           <img className="title animated wobble delay-2s" src={title} alt="" />
         </CSSTransition>
-        <CSSTransition
-          in={this.state.logo}
+        {/* <CSSTransition
+          in={this.props.index == 0 &this.state.logo}
           timeout={2000}
           classNames="logo"
           unmountOnExit
           onEntered={(el) => { this.setState({ rightTitle: true })}}
-        >
-          <img className="logo" src={logo} alt="" />
-        </CSSTransition>
+        > */}
+          <img className={['logo','animated delay-1s',this.props.index == 0?"bounceInDown":null].join(' ')} src={logo} alt="" />
+        {/* </CSSTransition> */}
 
       </div>
       <div className="middle">
-        <div className="middle-left" >
-          <img className="lobster" src={lobsterImg} alt="" />
+        <div className={['middle-left',this.props.index == 0?"right-move":null].join(' ')}>
+          <img className='lobster' src={lobsterImg} alt="" />
           <img className="cap" src={capImg} alt="" />
         </div>
         <img className="beer" src={beerImg} />
@@ -66,10 +71,10 @@ class PageOne extends Component {
               unmountOnExit
               onEnter={(el) => { }}
             >
-              <img className="right-title" src={rightTitle} alt="" />
+              <img className="right-title"  src={rightTitle} alt="" />
             </CSSTransition>
           </div>
-          <img className="lobster-second" src={lobsterSecond} alt="" />
+          <img className={['lobster-second',this.props.index == 0?"left-move":null].join(' ')}  src={lobsterSecond} alt="" />
         </div>
       </div>
       <div className="spindrift">

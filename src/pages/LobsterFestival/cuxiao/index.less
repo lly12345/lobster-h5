@@ -1,0 +1,277 @@
+.cuxiao{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    background: url(@/assets/lobster/bg.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    .headline{
+        width: 100%;
+        padding: .5rem;
+        box-sizing: border-box;
+        display:  flex;
+        justify-content: space-between;
+        align-items: flex-start;
+       
+        .title{
+            width: 1.5rem;
+        }
+        .logo{
+            width: 1.8rem;
+            margin-top: .5rem;
+        }
+
+    }
+    
+    
+    .middle{
+        width: 90%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: .2rem;
+        box-sizing: border-box;
+        position: relative;
+        // background: url('@/assets/lobster/shan.png') no-repeat;
+        // background-size: 100%;
+        // background-position-y: 2rem;
+        overflow: visible;
+        .beer{
+            width: 100vw; 
+            margin-bottom: 1.2rem;
+            box-sizing: border-box; 
+            position: absolute;
+            left: 50%;
+            bottom: 1.3rem;
+            transform: translateX(-52%);
+            z-index: 0;
+        }
+        .middle-left{
+            position: relative;
+            animation:rightMove 3s ease, lob_rotate 3s linear 3s infinite;
+            z-index: 10;
+            .lobster{
+                width: 2.5rem;
+                margin-top: 2rem;
+                margin-left: .5rem;
+                
+            }
+            .cap{
+                width: 1rem;
+                position: absolute;
+                top: -.2rem;
+                left: 1.9rem;
+                z-index: 1;
+            }
+        }
+
+        .middle-right{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            
+            margin-top: -2rem;
+            animation:lob_rotate 3s linear 3s infinite; 
+            .right-title{
+                width: 2rem;
+            }
+            .lobster-second{
+                width: 3rem;
+                margin-left: .2rem;
+                // animation:leftMove 3s ease , lob_rotate 3s linear 3s infinite; 
+                position: relative;
+                z-index: 99;
+            }
+        }
+
+    }
+   
+    footer{
+        width: 100%;
+        position: absolute;
+        bottom: 4rem;
+        img{
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transform: scale(1.9);
+        }
+        .wave1{
+            z-index: 3;
+            bottom: 0;
+            animation: wave1 4.5s linear  infinite;
+        }
+        .wave2{
+            z-index: 2;
+            animation: wave2 5s linear  infinite;
+        }
+        .wave3{
+            z-index: 0;
+            bottom: -.5rem;
+            
+            transform: translateY(-6px);
+            animation: wave3 4s linear  infinite;
+        }
+    }
+     
+    .footer-detail{
+        width: 100%;
+        height: 45vh;
+        background: url('@/assets/lobster/footer-bg.png') no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        background-position-y: 1rem;
+        position: absolute;
+        bottom: 0;
+        z-index: 99;
+        display: flex;
+        flex-direction: row;
+        padding: .1rem;
+        box-sizing: border-box;
+        .left{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 55vw;
+            .flag{
+                width: 2rem;
+                margin: 0 auto 0;
+                
+            }
+            .activity{
+                width: 4rem;
+                margin-bottom: 1rem;
+            }
+        }
+        .right{
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            align-items: flex-end;
+            .box{
+                width: 4rem;
+                position: relative;
+                left: -.6rem;
+                top: 2rem;
+            }
+            .right-tip{
+                position: absolute;
+                bottom: .5rem;
+                font-size: 12px;
+                color: #fff;
+                width: 2rem;
+                right: 1rem;
+            }
+        }
+        .tip{
+            position: absolute;
+            bottom: .2rem;
+            font-size: 12px;
+            color: #fff;
+            width: 100vw;
+            text-align: center;
+        }
+
+    }
+    
+    
+}
+@keyframes lob_rotate {
+    0%   {
+        transform:rotate(0);
+    }
+    25%  {
+        transform:rotate(5deg);
+    }
+    75% {
+        transform:rotate(-5deg);
+    }
+    100%{
+        transform:rotate(0);
+    }
+}
+
+@keyframes rightMove {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(0);
+    }
+    
+}
+@keyframes leftMove {
+    from {
+        transform: translateX(200px);
+    }
+    to {
+        transform: translateX(0);
+    }
+    
+}
+
+
+@keyframes animation_rotate {
+    from {
+        transform: rotate(0);
+        transform-origin: center;
+    }
+    to {
+        transform: rotate(-30deg);
+        transform-origin: center;
+    }
+}
+
+@keyframes wave1 {
+    0%   {
+        transform:scale(1.9) translate(0);
+    }
+    50%  {
+        transform:scale(1.9) translate(15px,10px);
+    }
+    100% {
+        transform:scale(1.9) translate(0);
+    }
+}
+@keyframes wave2 {
+    0%   {
+        transform:scale(1.9) translate(0);
+    }
+    50%  {
+        transform:scale(1.9) translate(15px,10px);
+    }
+    70%  {
+        transform:scale(1.9) translate(0px,10px);
+    }
+    100% {
+        transform:scale(1.9) translate(0);
+    }
+}
+
+@keyframes wave3 {
+    0%   {
+        transform:scale(1.9) translateY(-6px);
+    }
+    50%  {
+        transform:scale(1.9) translate(-10px,5px);
+    }
+    100% {
+        transform:scale(1.9) translateY(-6px);
+    }
+}
+
+
+
+
+

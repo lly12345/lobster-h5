@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { message } from 'antd'
+
 import { stringify } from 'qs'
 import config from '../../config'
 
@@ -36,12 +36,12 @@ const getRequest = (method) => {
         }).then(res=>{
             if(typeof res.data !== 'object'){
                 console.error('数据格式响应错误：', res.data)
-                message.error('前方拥挤，请刷新再试')
+                console.error('前方拥挤，请刷新再试')
                 return Promise.reject(res)
             }
             return res.data
         }) .catch((err) => {
-            message.error('系统错误', 2)
+            console.error('系统错误', 2)
             return Promise.reject(err)
           })
     }

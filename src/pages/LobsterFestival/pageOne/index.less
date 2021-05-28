@@ -44,7 +44,7 @@
         background-position-y: 5rem;
         overflow: visible;
         .beer{
-            width: 2.8rem; 
+            width: 2.5rem; 
             margin-bottom: 1.2rem;
             box-sizing: border-box; 
             position: absolute;
@@ -55,7 +55,7 @@
         }
         .middle-left{
             position: relative;
-            animation:rightMove 3s ease, lob_rotate 3s linear 3s infinite;
+            
             z-index: 10;
             .lobster{
                 width: 3.5rem;
@@ -87,7 +87,8 @@
                 width: 2.2rem;
                 margin-right: -.2rem;
                 margin-top: 1rem;
-                animation:leftMove 3s ease , lob_rotate 3s linear 3s infinite; 
+                 position: relative;
+                z-index: 99;
             }
         }
 
@@ -131,6 +132,16 @@
         }
     }
     
+    
+}
+
+.right-move{
+    animation:rightMove 3s ease, lob_rotate 3s linear 3s infinite;          
+}
+.left-move{
+    animation:leftMove 3s ease , lob_rotate 3s linear 3s infinite; 
+}
+.scale-bounce{
     
 }
 @keyframes lob_rotate {

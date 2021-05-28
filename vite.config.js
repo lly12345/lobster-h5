@@ -5,8 +5,10 @@ import fs from 'fs'
 import lessToJS from 'less-vars-to-js'
 import config from './config'
 
+
 // 按需加载
-import vitePluginImp from 'vite-plugin-imp'
+// import vitePluginImp from 'vite-plugin-imp'
+import vitePluginImport from 'vite-plugin-babel-import'
 
 
 console.log('process:::env', process.argv);
@@ -49,12 +51,21 @@ export default defineConfig({
 
   plugins: [
     reactRefresh(),
-    vitePluginImp({
-      libList:[{
-        libName:"antd",
-        style:(name) => `antd/lib/${name}/style/index.less` //按需引入antd
-      }]
-    })
+    // vitePluginImp({
+    //   libList:[{
+    //     libName:"antd",
+    //     style:(name) => `antd/lib/${name}/style/index.less` //按需引入antd
+    //   }]
+    // })
+    vitePluginImport([
+      {
+        libraryName: 'antd-mobile',
+        libraryDirectory: 'es',
+        style(name) {
+          return `antd-mobile/lib/${name}/style/index.css`
+        },
+      },
+    ])
   ],
   css:{
     preprocessorOptions:{
