@@ -32,27 +32,23 @@ class pageEnroll extends Component {
   constructor() {
     super()
     this.state = {
-      id: 0,
+      id: window.localStorage.getItem('shopId') || 0,
       name: window.localStorage.getItem('name') || '',
       phone: window.localStorage.getItem('tel') || '',
       address: ''
     }
   }
   componentDidMount() {
-
-    // this.initMap()
     const latlng = getQueryVariable('latng')
     const address = getQueryVariable('addr')
-    const shopId = getQueryVariable('shopId')
+    const id = getQueryVariable('id')||window.localStorage.getItem('uid')
     setTimeout(() => {
-      console.log(shopId);
+      console.log(id);
     });
 
-    if (shopId) {
-      this.setState({
-        id: shopId
-      })
-      post('/user/wx-login', { id: window.localStorage.getItem('uid') }).then(res => {
+    if (id) {
+      window.localStorage.setItem('uid', id)
+      post('/user/wx-login', { id: id }).then(res => {
         let sign = {}
         Object.assign(sign, res.data.sign, { token: res.data.token }, { uid: res.data.uid }, { activityId: 2 })
         console.log(sign);
@@ -65,7 +61,7 @@ class pageEnroll extends Component {
         lat: latlng.split(',')[0],
         lng: latlng.split(',')[1],
       })
-      this.initMap(latlng.split(',')[0], latlng.split(',')[1])
+       
     }
   }
 
@@ -78,26 +74,6 @@ class pageEnroll extends Component {
       zoom: 13,   //设置地图缩放级别
       viewMode: '2D'
     });
-    // var marker = new TMap.MultiMarker({
-    //   id: "marker-layer", //图层id
-    //   map: map,
-    //   styles: { //点标注的相关样式
-    //     "marker": new TMap.MarkerStyle({
-    //       "width": 25,
-    //       "height": 35,
-    //       "anchor": { x: 16, y: 32 },
-    //       "src": "https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png"
-    //     })
-    //   },
-    //   geometries: [{ //点标注数据数组
-    //     "id": "demo",
-    //     "styleId": "marker",
-    //     "position": new TMap.LatLng(latitude, longitude),
-    //     "properties": {
-    //       "title": "marker"
-    //     }
-    //   }]
-    // });
     map.removeControl(TMap.constants.DEFAULT_CONTROL_ID.ZOOM);
   }
 
@@ -115,14 +91,22 @@ class pageEnroll extends Component {
     this.setState({
       name: event.target.value
     })
-    window.localStorage.setItem("name", this.state.name)
+    setTimeout(() => {
+
+      window.localStorage.setItem("name", this.state.name)
+    });
+
   }
 
   handleTelChange(event) {
     this.setState({
       phone: event.target.value
     })
-    window.localStorage.setItem("tel", this.state.phone)
+    setTimeout(() => {
+
+      window.localStorage.setItem("tel", this.state.phone)
+    });
+
   }
 
   handleSubmit() {
@@ -133,7 +117,7 @@ class pageEnroll extends Component {
     post('/shop', this.state).then(res => {
       console.log(res);
       if (!res.success) return alert(res.msg)
-      confirm('提交成功')
+      confirm('提交成功，十二小时内会有人审核')
     })
   }
   handleAddress = () => {

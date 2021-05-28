@@ -5,8 +5,6 @@ import { getQueryVariable } from 'utils/URLquery'
 import { Carousel, WingBlank } from 'antd-mobile';
 
 
- 
-
 // 图片
 import beerImg from '@/assets/lobster/beer.png'
 import wave1 from '@/assets/lobster/bottom1.png'
@@ -17,8 +15,8 @@ import spindrift1 from '@/assets/lobster/spindrift1.png'
 import spindrift2 from '@/assets/lobster/spindrift2.png'
 import longxia1 from '@/assets/lobster/page-enroll/longxia1.png'
 import longxia2 from '@/assets/lobster/page-enroll/longxia2.png'
- 
- 
+
+
 import code from '@/assets/lobster/code.png'
 
 
@@ -33,6 +31,7 @@ const mapStyle = {
 
 const page = 8
 
+
 class pageEnroll extends Component {
   constructor() {
     super()
@@ -42,22 +41,28 @@ class pageEnroll extends Component {
       tel: '',
       addr: '',
       lat: '0',
-      lng: '0'
+      lng: '0',
+      show: false
     }
   }
 
+
   componentDidMount() {
-    const shopId = getQueryVariable('shopId')
-    console.log(shopId);
-    if(shopId){
-      console.log(shopId);
-      post('/user/wx-login', { id: window.localStorage.getItem('uid') }).then(res => {
+    const id = getQueryVariable('id') || window.localStorage.getItem('uid')
+    if (id) {
+      window.localStorage.setItem('uid', id)
+      post('/user/wx-login', { id: id }).then(res => {
         let sign = {}
         Object.assign(sign, res.data.sign, { token: res.data.token }, { uid: res.data.uid }, { activityId: 2 })
         console.log(sign);
         window.localStorage.setItem('sign', JSON.stringify(sign))
-        get(`/shop/detail?id=${shopId}`).then(res => {
+        get(`/shop/detail?id=${window.localStorage.getItem('shopId')}`).then(res => {
           console.log(res);
+          if (!res.success) {
+            this.setState({
+              show: false
+            })
+          }
           this.setState({
             img: res.data.pictures,
             title: res.data.name,
@@ -69,10 +74,7 @@ class pageEnroll extends Component {
           this.initMap(res.data.lat, res.data.lng)
         })
       })
-
     }
-    
-
   }
 
   initMap(latitude, longitude) {
@@ -120,6 +122,7 @@ class pageEnroll extends Component {
 
   render() {
     return (
+
       <div className={['pageEnroll', 'animated delay-.2s', this.props.index == page ? "swing" : null].join(' ')}>
         <div className="bg">
           <div className="headline">
@@ -141,7 +144,7 @@ class pageEnroll extends Component {
           </footer>
         </div>
 
-        <div className="content">
+        <div className="content" style={{ display: this.state.show ? 'block' : 'none' }}>
           <div className="img-list">
             <WingBlank>
               <Carousel
@@ -176,12 +179,19 @@ class pageEnroll extends Component {
           </div>
 
         </div>
+        <div className="content verify" style={{ display: !this.state.show ? 'block' : 'none' }}>
+          <div className="verify">
+            门店尚在审核
+        </div>
+        </div>
 
         <div className="lobster">
           <img className="longxia1" src={longxia1} alt="" />
           <img className="longxia2" src={longxia2} alt="" />
         </div>
       </div>
+
+
 
     )
   }

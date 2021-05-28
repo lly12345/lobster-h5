@@ -48,7 +48,7 @@ class test extends Component {
             <WingBlank>
                 <Carousel
                     autoplay={false}
-                    infinite
+                    infinite={false}
                     dots={false}
                     beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
                     afterChange={index => this.handleChange(index)}
@@ -63,7 +63,7 @@ class test extends Component {
                     <CuXiao index={this.state.currentIndex}></CuXiao>
                     <Gift index={this.state.currentIndex}></Gift>
                     <DouYin index={this.state.currentIndex}></DouYin>
-                    {/* <ShopDetail index={this.state.currentIndex}></ShopDetail> */}
+                    <ShopDetail index={this.state.currentIndex}></ShopDetail>
                 </Carousel>
             </WingBlank>
         );
