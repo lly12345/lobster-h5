@@ -1,4 +1,5 @@
-@import '@/styles/common.less';
+
+
 .rotate-circle, .rotate-circle * {
     
     display: none;
@@ -16,12 +17,65 @@
     height: 100vh;
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    .bg{
-        position: absolute;
-        z-index: -1;
-        
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    overflow: hidden;
+    background-image: linear-gradient( #063967 30%,  #a0d3b8);
+    background-position: center;
+    background-size: 100% 100%;
+    .headline{
+        width: 100%;
+        padding: .5rem;
+        box-sizing: border-box;
+        display:  flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .title{
+            width: 1.6rem;
+        }
+        .logo{
+            width: 1.8rem;  
+        }
+    }
+    .middle{
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: .2rem;
+        box-sizing: border-box;
+        position: relative;
+        background: url('@/assets/lobster/shan.png') no-repeat;
+        background-size: 100%;
+        background-position-y: 7rem;
+        overflow: visible;
+        .beer{
+            width: 2.2rem; 
+            margin-bottom: 1.2rem;
+            box-sizing: border-box; 
+            position: absolute;
+            left: 50%;
+            bottom: 0rem;
+            transform: translateX(-52%);
+            z-index: 0;
+        }
+        .middle-left{
+            width: 3.5rem;
+        }
+
+        .middle-right{
+            width: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            margin-right: .5rem;
+            margin-top: -1.5rem;
+            
+        }
 
     }
     .content{
@@ -35,8 +89,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        position: relative;
-        z-index: 101;
+       z-index: 99;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 100;
+        transform: translate(-50%,-50%);
         
         .info{
 
@@ -60,6 +118,7 @@
                 margin-bottom: .2rem;
                 span{
                     min-width: 1.4rem;
+                    font-size: 0.26rem;
                 }
                 input{
                     box-sizing: border-box;
@@ -79,6 +138,14 @@
                     // flex: 3;
                 }
             }
+        }
+        .map-overlay{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            overflow: hidden;
+            border-radius: .3rem;
         }
 
         .picture-list{
@@ -141,7 +208,7 @@
         position: absolute;
         bottom: 3rem;
         left: 0;
-        z-index: 100;
+        z-index: 99;
         .longxia1{
             width: 2.5rem;
             position: absolute;
@@ -157,6 +224,49 @@
             z-index: 100;
             animation:lob_rotate1 3s linear infinite;
             
+        }
+    }
+    .spindrift{
+        position: absolute;
+        width: 100%;
+        height: 4rem;
+        bottom: 2rem;
+        z-index: 99;
+        img{
+            position: absolute;
+            width: 100%;
+        }
+        
+            .spindrift2{
+                bottom: 1rem;
+            }
+        
+    }
+    footer{
+        width: 100%;
+        position: absolute;
+        bottom: .4rem;
+        img{
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transform: scale(1.9);
+        }
+        .wave1{
+            z-index: 3;
+            bottom: 0;
+            animation: wave1 4.5s linear  infinite;
+        }
+        .wave2{
+            z-index: 2;
+            animation: wave2 5s linear  infinite;
+        }
+        .wave3{
+            z-index: 0;
+            bottom: -.5rem;
+            
+            transform: translateY(-6px);
+            animation: wave3 4s linear  infinite;
         }
     }
 }

@@ -9,6 +9,7 @@
     content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>雪津龙虾节</title>
   <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.0/animate.min.css">
+
   <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
   <script src="https://map.qq.com/api/gljs?v=1.exp&key=WCBBZ-J426J-3REF5-FYGFW-KM7Q5-CAFTX"></script>
   <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
@@ -21,15 +22,23 @@
     if (!window.Promise) {
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
     }
+
   </script>
 </head>
 
 <body>
+  <script>
+    console.log(document.documentElement.clientHeight);
+    if (document.documentElement.clientHeight < 675) {
+      document.writeln(`<link rel="stylesheet" href="./base.css">`);
+    }
+    
+  </script>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
   <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
   <script type="text/javascript">
-      console.log(returnCitySN["cid"])
+    console.log(returnCitySN["cid"])
   </script>
 
 </body>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import './index.less'
 import { post, get } from 'utils/request'
 import { getQueryVariable } from 'utils/URLquery'
@@ -32,7 +33,7 @@ const mapStyle = {
 const page = 8
 
 
-class pageEnroll extends Component {
+class ShopDetail extends Component {
   constructor() {
     super()
     this.state = {
@@ -56,11 +57,16 @@ class pageEnroll extends Component {
         Object.assign(sign, res.data.sign, { token: res.data.token }, { uid: res.data.uid }, { activityId: 2 })
         console.log(sign);
         window.localStorage.setItem('sign', JSON.stringify(sign))
+        console.log(window.localStorage.getItem('shopId'));
         get(`/shop/detail?id=${window.localStorage.getItem('shopId')}`).then(res => {
           console.log(res);
           if (!res.success) {
             this.setState({
               show: false
+            })
+          }else{
+            this.setState({
+              show: true
             })
           }
           this.setState({
@@ -121,36 +127,35 @@ class pageEnroll extends Component {
 
 
   render() {
+   
     return (
 
       <div className={[ 'p6 shop-detail pageEnroll', 'animated delay-.2s', this.props.index == page ? "swing" : null].join(' ')}>
-        <div className="bg">
-          <div className="headline">
-            <img className="logo" src={logo} alt="" />
-          </div>
-          <div className="middle">
+        <header className="headline">
+          {/* <CSSTransition
+            in={this.props.index == 1}
+            timeout={3000}
+            classNames="title"
+          
+            appear={true}
+            onEnter={(el) => { }}
+            onEntered={(el) => { this.setState({ logo: true }) }}
+          >
+            <img className="title animated wobble delay-2s" src={title} alt="" />
+          </CSSTransition> */}
 
-            <img className="beer" src={beerImg} />
+          <img className={['logo', 'animated delay-1s', this.props.index == 1 ? "bounceInDown" : null].join(' ')} src={logo} alt="" />
 
-          </div>
-          <div className="spindrift">
-            <img className="spindrift1" src={spindrift1} alt="" />
-            <img className="spindrift2" src={spindrift2} alt="" />
-          </div>
-          <footer>
-            <img className="wave wave1" src={wave1} alt="" />
-            <img className="wave wave2" src={wave2} alt="" />
-            <img className="wave wave3" src={wave3} alt="" />
-          </footer>
-        </div>
+        </header>
 
         <div className="content" style={{ display: this.state.show ? 'block' : 'none' }}>
-          <div className="img-list">
+          <div className="img-list" >
             <WingBlank>
               <Carousel
                 autoplay={true}
                 infinite
                 dots={true}
+                touchmove={e=>e.stopPropagation()}
               >
                 {
                   this.state.img.map((item, i) => {
@@ -189,6 +194,29 @@ class pageEnroll extends Component {
           <img className="longxia1" src={longxia1} alt="" />
           <img className="longxia2" src={longxia2} alt="" />
         </div>
+        <div className="middle">
+          <img className="beer" src={beerImg} />
+        </div>
+
+
+        <div className="spindrift">
+          <img className="spindrift1" src={spindrift1} alt="" />
+          <img className="spindrift2" src={spindrift2} alt="" />
+        </div>
+        {/* <div className="lobster">
+          <img className="longxia1" src={longxia1} alt="" />
+        </div> */}
+        <div className="lobster">
+          <img className="longxia1" src={longxia1} alt="" />
+          <img className="longxia2" src={longxia2} alt="" />
+        </div>
+
+        <footer>
+          <img className="wave wave1" src={wave1} alt="" />
+          <img className="wave wave2" src={wave2} alt="" />
+          <img className="wave wave3" src={wave3} alt="" />
+        </footer>
+     
       </div>
 
 
@@ -198,4 +226,4 @@ class pageEnroll extends Component {
 
 }
 
-export default pageEnroll
+export default ShopDetail

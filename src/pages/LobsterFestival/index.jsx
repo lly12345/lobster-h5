@@ -23,9 +23,11 @@ class LobsterFestival extends Component {
     //   window.localStorage.setItem('sign', JSON.stringify(sign))
     // })
     
+
   }
 
   render() {
+    
     return (
       <div>
         <PageOne></PageOne>

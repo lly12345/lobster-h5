@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './index.less'
- 
+
 
 import { Carousel, WingBlank } from 'antd-mobile';
 
@@ -24,9 +24,7 @@ class test extends Component {
         imgHeight: 176,
     }
     componentDidMount() {
-        
-        
-        
+
     }
 
     handleChange(index) {
@@ -37,37 +35,47 @@ class test extends Component {
     }
 
     render() {
-        console.log('邮编',returnCitySN["cid"]);
+        console.log('邮编', returnCitySN["cid"]);
         let page
-        if(350000<returnCitySN["cid"]<365000){
+        if (350000 < returnCitySN["cid"] < 365000) {
             page = (<FuJian index={this.state.currentIndex}></FuJian>)
-        }else{
+        } else {
             page = (<JiangXi index={this.state.currentIndex}></JiangXi>)
         }
+        console.log(window.screen.height);
+        // let device = false
+        // if (window.screen.height < 680) {
+        //     console.log('设备高度小于700');
+        //     device = true
+        // }
         return (
-            <WingBlank>
-                <Carousel
-                    autoplay={false}
-                    infinite={false}
-                    dots={false}
-                     
-                    beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                    afterChange={index => this.handleChange(index)}
-                >
-                    <PageOne index={this.state.currentIndex}></PageOne>
-                    <PageThree index={this.state.currentIndex}></PageThree>
-                    <PageTwo index={this.state.currentIndex}></PageTwo>
-                    {
-                        page
-                    }
-                    {/* <JiangXi index={this.state.currentIndex}></JiangXi> */}
-                    <LiZhi index={this.state.currentIndex}></LiZhi>
-                    <CuXiao index={this.state.currentIndex}></CuXiao>
-                    <Gift index={this.state.currentIndex}></Gift>
-                    <DouYin index={this.state.currentIndex}></DouYin>
-                    <ShopDetail index={this.state.currentIndex}></ShopDetail>
-                </Carousel>
-            </WingBlank>
+            <div>
+                <WingBlank>
+                    <Carousel
+                        autoplay={false}
+                        infinite={false}
+                        dots={false}
+                        // touchmove={e=>e.stopPropagation()}
+                        beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+                        afterChange={index => this.handleChange(index)}
+                    >
+                        <PageOne index={this.state.currentIndex}></PageOne>
+                        <PageThree index={this.state.currentIndex}></PageThree>
+                        <PageTwo index={this.state.currentIndex}></PageTwo>
+                        {
+                            page
+                        }
+                        {/* <JiangXi index={this.state.currentIndex}></JiangXi> */}
+                        <LiZhi index={this.state.currentIndex}></LiZhi>
+                        <CuXiao index={this.state.currentIndex}></CuXiao>
+                        <Gift index={this.state.currentIndex}></Gift>
+                        <DouYin index={this.state.currentIndex}></DouYin>
+                        <ShopDetail index={this.state.currentIndex}></ShopDetail>
+                    </Carousel>
+                </WingBlank>
+
+            </div>
+
         );
     }
 }

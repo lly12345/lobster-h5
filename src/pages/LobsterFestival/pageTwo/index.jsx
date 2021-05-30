@@ -47,8 +47,8 @@ class PageTwo extends Component {
                 <CSSTransition
                     in={this.props.index == page}
                     timeout={3000}
-                    classNames="title"
-                    unmountOnExit
+                    // classNames="title"
+                    
                     appear={true}
                     onEnter={(el) => { }}
                     onEntered={(el) => { this.setState({ logo: true }) }}

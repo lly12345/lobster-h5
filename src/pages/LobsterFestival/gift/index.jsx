@@ -14,6 +14,7 @@ import spindrift1 from '@/assets/lobster/spindrift1.png'
 import spindrift2 from '@/assets/lobster/spindrift2.png'
 import longxia1 from '@/assets/lobster/page-enroll/longxia1.png'
 import longxia2 from '@/assets/lobster/page-enroll/longxia2.png'
+ 
 
 import one from '@/assets/lobster/gift/1.png'
 import two from '@/assets/lobster/gift/2.png'
@@ -27,11 +28,11 @@ import eight from '@/assets/lobster/gift/8.png'
 const gift = [
   { title: '开瓶器', url: one },
   { title: '吸管', url: two },
-  { title: 'TAG', url: three },
+  // { title: 'TAG', url: three },
   { title: '扇子', url: four },
   { title: '清凉拖鞋', url: five },
-  { title: '帽子', url: six },
-  { title: '午睡毯', url: seven },
+  // { title: '帽子', url: six },
+  // { title: '午睡毯', url: seven },
   { title: '夏日清凉马扎', url: eight },
 ]
 
@@ -51,17 +52,18 @@ class Gift extends Component {
     return (
       <div className="p6 common pageEnroll page gift">
         <header className="headline">
-          <CSSTransition
+     
+          {/* <CSSTransition
             in={this.props.index == 1}
             timeout={3000}
             classNames="title"
-            unmountOnExit
+          
             appear={true}
             onEnter={(el) => { }}
             onEntered={(el) => { this.setState({ logo: true }) }}
           >
-            <img className="logo animated wobble delay-2s" src={logo} alt="" />
-          </CSSTransition>
+            <img className="title animated wobble delay-2s" src={title} alt="" />
+          </CSSTransition> */}
 
           <img className={['logo', 'animated delay-1s', this.props.index == 1 ? "bounceInDown" : null].join(' ')} src={logo} alt="" />
 

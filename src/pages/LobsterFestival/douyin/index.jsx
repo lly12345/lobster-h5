@@ -37,17 +37,17 @@ class DouYin extends Component {
     return (
       <div className="p6 common pageDouYin page">
         <header className="headline">
-          <CSSTransition
+          {/* <CSSTransition
             in={this.props.index == 1}
             timeout={3000}
             classNames="title"
-            unmountOnExit
+          
             appear={true}
             onEnter={(el) => { }}
             onEntered={(el) => { this.setState({ logo: true }) }}
           >
             <img className="title animated wobble delay-2s" src={title} alt="" />
-          </CSSTransition>
+          </CSSTransition> */}
 
           <img className={['logo', 'animated delay-1s', this.props.index == 1 ? "bounceInDown" : null].join(' ')} src={logo} alt="" />
 

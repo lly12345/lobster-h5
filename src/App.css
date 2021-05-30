@@ -1,6 +1,12 @@
+* {  
+padding: 0;
+margin: 0;
+}
+
 html {
   font-size: calc(100vw / 7.5);
 }
+
 
 body{
   margin: 0;
@@ -11,12 +17,11 @@ p,h2,h6{
   margin: 0;
   padding: 0;
 }
-.common{
-  /* height: 100vh;
-  min-height: 800px; */
-}
+ 
 .am-wingblank.am-wingblank-lg {
   margin:0;
 }
+
+
 
 

@@ -35,7 +35,7 @@ class PageOne extends Component {
     }
 
     render() {
-        return <div  className={['p6 pageLiZhi common', 'animated ', this.props.index == page ? "fadeIn" : null].join(' ')}>
+        return <div  className={['p6 pageLiZhi common', 'animated ', this.props.index == page ? "" : null].join(' ')}>
             <header className="headline">
                 <CSSTransition
                     in={this.props.index == page}

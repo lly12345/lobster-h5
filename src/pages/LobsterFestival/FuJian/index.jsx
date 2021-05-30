@@ -35,13 +35,13 @@ class PageOne extends Component {
     }
 
     render() {
-        return <div className={['p6 pageFuJian common', 'animated delay-.2s', this.props.index == page ? "bounceIn" : null].join(' ')}>
+        return <div className={['p6 pageFuJian common', 'animated ', this.props.index == page ? "" : null].join(' ')}>
             <header className="headline">
                 <CSSTransition
                     in={this.props.index == page}
                     timeout={3000}
                     classNames="title"
-                    unmountOnExit
+
                     appear={true}
                     onEnter={(el) => { }}
                     onEntered={(el) => { this.setState({ logo: true }) }}
