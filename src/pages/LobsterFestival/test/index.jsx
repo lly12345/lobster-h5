@@ -46,8 +46,8 @@ class test extends Component {
             });
             wx.ready(function () {
                 wx.updateAppMessageShareData({
-                    title: '雪津龙虾节', // 分享标题
-                    desc: '这个夏天和自己人聚在一起，“津”彩一“夏”', // 分享描述
+                    title: '跟着自己人一起虾起哄', // 分享标题
+                    desc: '啤酒配龙虾精彩一整夏，这个夏天快叫上自己人一起来吧', // 分享描述
                     link: `https://h5.fuzhouxiaoyu.com/longxiajie/shop.html?shopId=${window.localStorage.getItem('shopId')}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                     imgUrl: 'https://h5.fuzhouxiaoyu.com/longxiajie/share-icon.jpg',
                     success: function (res) {
@@ -60,7 +60,7 @@ class test extends Component {
                 })
 
                 wx.updateTimelineShareData({
-                    title: '雪津龙虾节', // 分享标题
+                    title: '跟着自己人一起虾起哄', // 分享标题
                     link: `https://h5.fuzhouxiaoyu.com/longxiajie/shop.html?shopId=${window.localStorage.getItem('shopId')}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                     imgUrl: 'https://h5.fuzhouxiaoyu.com/longxiajie/share-icon.jpg', // 分享图标
                     success: function (res) {
