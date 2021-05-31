@@ -64,7 +64,7 @@ class ShopDetail extends Component {
             this.setState({
               show: false
             })
-          }else{
+          } else {
             this.setState({
               show: true
             })
@@ -74,14 +74,38 @@ class ShopDetail extends Component {
             title: res.data.name,
             tel: res.data.phone,
             addr: res.data.address,
-            lat: res.data.lat,
-            lng: res.data.lng
+            lat: parseFloat(res.data.lat),
+            lng: parseFloat(res.data.lng)
           })
           this.initMap(res.data.lat, res.data.lng)
+          const url = window.encodeURI(window.location.href);
+          // get(
+          //   `/index/wx-config?url=${url}`
+          // ).then(res => {
+          //   console.log(res);
+          //   wx.config({
+          //     debug: false,
+          //     appId: 'wx73e5ccd9a6aaadf3',
+          //     // timestamp: String(Date.now()),
+          //     timestamp: res.data.timestamp,
+          //     nonceStr: res.data.noncestr,
+          //     signature: res.data.signature,
+          //     jsApiList: [
+          //       // 所有要调用的 API 都要加到这个列表中
+          //       'updateAppMessageShareData',
+          //       'onMenuShareTimeline',
+          //       'openLocation',
+          //       'getLocation'
+          //     ]
+          //   });
+            
+          // })
         })
       })
     }
   }
+
+
 
   initMap(latitude, longitude) {
     let center = new TMap.LatLng(latitude, longitude)
@@ -117,20 +141,38 @@ class ShopDetail extends Component {
   }
 
   handleGo(lat, lng) {
-    const that = this
-    wx.openLocation({
-      latitude: lat, // 纬度，浮点数，范围为90 ~ -90
-      longitude: lng, // 经度，浮点数，范围为180 ~ -180。
-      name: '', // 位置名
-    });
+    console.log('去这里');
+    console.log('lat:'+lat+'lng:'+lng);
+    let that = this
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        console.log(res);
+        wx.openLocation({
+          latitude: lat,
+          longitude: lng,
+          scale: 28,
+          address: that.state.addr,
+          success: res => {
+            console.log(res)
+          },
+          fail:err=>{
+            console.log(err);
+          }
+        })
+      }
+    })
+
+
+
   }
 
 
   render() {
-   
+
     return (
 
-      <div className={[ 'p6 shop-detail pageEnroll', 'animated delay-.2s', this.props.index == page ? "swing" : null].join(' ')}>
+      <div className={['p6 shop-detail pageEnroll', 'animated delay-.2s', this.props.index == page ? "swing" : null].join(' ')}>
         <header className="headline">
           {/* <CSSTransition
             in={this.props.index == 1}
@@ -155,7 +197,7 @@ class ShopDetail extends Component {
                 autoplay={true}
                 infinite
                 dots={true}
-                touchmove={e=>e.stopPropagation()}
+                touchmove={e => e.stopPropagation()}
               >
                 {
                   this.state.img.map((item, i) => {
@@ -176,7 +218,7 @@ class ShopDetail extends Component {
               <div id="local" style={mapStyle}></div>
               <div className="address">
                 <span>{this.state.addr}</span>
-                <button onClick={this.handleGo(this.state.lat, this.state.lng)}>立即前往</button>
+                <button onClick={()=>this.handleGo(this.state.lat, this.state.lng)}>立即前往</button>
               </div>
             </div>
             <img className="code" src={code} alt="" />
@@ -216,7 +258,7 @@ class ShopDetail extends Component {
           <img className="wave wave2" src={wave2} alt="" />
           <img className="wave wave3" src={wave3} alt="" />
         </footer>
-     
+
       </div>
 
 

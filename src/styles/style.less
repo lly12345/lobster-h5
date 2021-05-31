@@ -22,17 +22,23 @@
     transition:transform 1s ease;
 }
 
+
+
 .right-headline-enter, .logo-appear{
+    
     transform: translateX(.5rem);
     
 }
 .right-headline-enter-active, .right-headline-appear-active{
+    
     transform: translateX(0);
     transition:transform .5s ease;
     animation: bounce 1s linear infinite .5s;
+    
 }
 .right-headline-enter-done{
-    animation: bounce 1s linear infinite;
+    transform: translateX(0);
+    animation: bounce 1s linear infinite .5s;
 }
 
 @keyframes bounce {

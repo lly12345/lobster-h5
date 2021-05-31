@@ -40,8 +40,10 @@ class PageOne extends Component {
           classNames="title"
         
           appear={true}
-          onEnter={(el) => { }}
-          onEntered={(el) => { this.setState({ rightTitle: true }) }}
+          onEnter={(el) => { setTimeout(() => {
+            this.setState({ rightTitle: true })
+          }, 2000);  }}
+          onEntered={(el) => {  }}
         >
           <img className="title animated wobble delay-2s" src={title} alt="" />
         </CSSTransition>
@@ -68,7 +70,7 @@ class PageOne extends Component {
               in={this.state.rightTitle}
               timeout={2000}
               classNames="right-headline"
-            
+              unmountOnExit
               onEnter={(el) => { }}
             >
               <img className="right-title" src={rightTitle} alt="" />
@@ -86,9 +88,9 @@ class PageOne extends Component {
         <img className="wave wave2" src={wave2} alt="" />
         <img className="wave wave3" src={wave3} alt="" />
       </footer>
-      <div className="allow" >
+      {/* <div className="allow" >
         <svg t="1622212652711" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1172" width="200" height="200"><path d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z" p-id="1173" fill="#ffffff"></path></svg>
-      </div>
+      </div> */}
 
     </div>
 

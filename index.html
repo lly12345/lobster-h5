@@ -28,8 +28,12 @@
 
 <body>
   <script>
-    console.log(document.documentElement.clientHeight);
+    console.log('window.screen.availHeight',document.documentElement.clientHeight);
     if (document.documentElement.clientHeight < 675) {
+      console.log('document.documentElement.clientHeight',document.documentElement.clientHeight);
+      document.writeln(`<link rel="stylesheet" href="./base.css">`);
+    }else if (window.screen.availHeight < 675) {
+      console.log('window.screen.availHeight',document.documentElement.clientHeight);
       document.writeln(`<link rel="stylesheet" href="./base.css">`);
     }
     

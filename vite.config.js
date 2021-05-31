@@ -31,14 +31,14 @@ export default defineConfig({
       "utils": path.resolve(__dirname, "src/utils"),
     }
   },
-  build:{
-    rollupOptions: {
-      input: {
-        index: path.resolve(__dirname, 'index.html'),
-        nested: path.resolve(__dirname, 'shop-upload.html')
-      }
-    }
-  },
+  // build:{
+  //   rollupOptions: {
+  //     input: {
+  //       index: path.resolve(__dirname, 'index.html'),
+  //       nested: path.resolve(__dirname, 'shop-upload.html')
+  //     }
+  //   }
+  // },
   server: {
     proxy: {
       '/api': {
