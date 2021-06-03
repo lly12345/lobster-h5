@@ -165,7 +165,11 @@ class ShopDetail extends Component {
 
 
 
+
+
   }
+
+  
 
 
   render() {
@@ -221,7 +225,7 @@ class ShopDetail extends Component {
                 <button onClick={()=>this.handleGo(this.state.lat, this.state.lng)}>立即前往</button>
               </div>
             </div>
-            <img className="code" src={code} alt="" />
+            <img className="code" onClick={()=>{window.location.href = 'https://v.douyin.com/emVSwgy/'}} src={code} alt="" />
 
           </div>
 

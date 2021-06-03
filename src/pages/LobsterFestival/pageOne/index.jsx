@@ -32,7 +32,7 @@ class PageOne extends Component {
 
 
   render() {
-    return <div className={['p6 p6-pageOne pageOne common', 'animated ', this.props.index == 0 ? "zoomIn" : null].join(' ')}>
+    return <div className={['p6 p6-pageOne pageOne common page', 'animated ', this.props.index == 0 ? "zoomIn" : null].join(' ')}>
       <div className="headline">
         <CSSTransition
           in={this.props.index == 0}

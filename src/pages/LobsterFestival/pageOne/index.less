@@ -1,24 +1,12 @@
 .pageOne{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    overflow: hidden;
-    background-image: linear-gradient( #063967 30%,  #a0d3b8);
    .allow{
-       
        position: absolute;
        right: 0;
        top: 50%;
        transform: translateY(-50%);
        animation: twinkling 2s linear  infinite;
-       
        .icon{
         width: .6rem;
-        
        }
    }
     .headline{
@@ -56,13 +44,13 @@
         overflow: visible;
         .beer{
             width: 2.4rem;
-    margin-bottom: 1rem;
-    box-sizing: border-box;
-    position: absolute;
-    left: 50%;
-    bottom: 0rem;
-    transform: translateX(-52%);
-    z-index: 0;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+            position: absolute;
+            left: 50%;
+            bottom: 0rem;
+            transform: translateX(-52%);
+            z-index: 0;
         }
         .middle-left{
             position: relative;
@@ -104,45 +92,7 @@
         }
 
     }
-    .spindrift{
-        position: absolute;
-        width: 100%;
-        height: 4rem;
-        bottom: 2rem;
-        z-index: 99;
-        img{
-            position: absolute;
-            width: 100%;
-        }
-    }
-    footer{
-        width: 100%;
-        position: absolute;
-        bottom: .4rem;
-        img{
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            transform: scale(1.9);
-        }
-        .wave1{
-            z-index: 3;
-            bottom: 0;
-            animation: wave1 4.5s linear  infinite;
-        }
-        .wave2{
-            z-index: 2;
-            animation: wave2 5s linear  infinite;
-        }
-        .wave3{
-            z-index: 0;
-            bottom: -.5rem;
-            
-            transform: translateY(-6px);
-            animation: wave3 4s linear  infinite;
-        }
-    }
-    
+   
     
 }
 
@@ -152,7 +102,6 @@
 .left-move{
     animation:leftMove 3s ease , lob_rotate 3s linear 3s infinite; 
 }
-
 
 @keyframes lob_rotate {
     0%   {
@@ -200,43 +149,6 @@
     }
 }
 
-@keyframes wave1 {
-    0%   {
-        transform:scale(1.9) translate(0);
-    }
-    50%  {
-        transform:scale(1.9) translate(15px,10px);
-    }
-    100% {
-        transform:scale(1.9) translate(0);
-    }
-}
-@keyframes wave2 {
-    0%   {
-        transform:scale(1.9) translate(0);
-    }
-    50%  {
-        transform:scale(1.9) translate(15px,10px);
-    }
-    70%  {
-        transform:scale(1.9) translate(0px,10px);
-    }
-    100% {
-        transform:scale(1.9) translate(0);
-    }
-}
-
-@keyframes wave3 {
-    0%   {
-        transform:scale(1.9) translateY(-6px);
-    }
-    50%  {
-        transform:scale(1.9) translate(-10px,5px);
-    }
-    100% {
-        transform:scale(1.9) translateY(-6px);
-    }
-}
 
 @keyframes twinkling {
 	0% {
