@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-// import { Upload, Modal } from 'antd';
-import { ImagePicker, WingBlank, SegmentedControl } from 'antd-mobile';
+import { ImagePicker } from 'antd-mobile';
 import { PlusOutlined } from '@ant-design/icons';
-import { post } from 'utils/request'
+import { post,upload } from 'utils/request'
 import './index.less'
+import MyToast from '@/components/mytoast'
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -13,7 +13,7 @@ function getBase64(file) {
     reader.onerror = error => reject(error);
   });
 }
-const imgArr = []
+let imgArr = []
 
 class PicturesWall extends React.Component {
   constructor(props) {
@@ -43,45 +43,74 @@ class PicturesWall extends React.Component {
 
   handleChange = ({ fileList }) => this.setState({ fileList });
 
-  uploadImg = (files) => {
-    console.log(files);
-
-    // 上传图片的base64编码，调接口后，返回 imageId
-    // post('/upload', params).then(res => {
-    //   console.log(res);
-    // })
+  uploadImg = async(files) => {
+    document.querySelector('.loadding').style.display = "block"
     const formData = new FormData();
-    formData.append('ShopPicture', files[files.length-1].file);
-    post('/upload', formData).then(res => {
-      console.log(res);
-      if (res.success) {
-        const imgItem = {
-          uid: res.data.ShopPicture[0].id,
-          url: res.data.ShopPicture[0].url,
-          name: 'image.png',
-          status: 'done',
-        }
+    formData.append('ShopPicture', files[files.length - 1].file);
 
-        imgArr.push(imgItem)
-        this.setState({
-          fileList: imgArr
-        })
-        this.props.content(this.state.fileList)
-
-      }
+    const res = await upload({
+      url: '/upload',
+      data: formData
     })
+    if (res.success) {
+
+      const imgItem = {
+        uid: res.data.ShopPicture[0].id,
+        url: res.data.ShopPicture[0].url,
+        name: 'image.png',
+        status: 'done',
+      }
+      imgArr = [...this.state.fileList]
+      imgArr.push(imgItem)
+      this.setState({
+        fileList: imgArr
+      }, () => {
+        this.props.content(this.state.fileList)
+      })
+
+      document.querySelector('.loadding').style.display = "none"
+
+    }
+
+    // post('/upload', formData).then(res => {
+    //   console.log(res);
+    //   if (res.success) {
+
+    //     const imgItem = {
+    //       uid: res.data.ShopPicture[0].id,
+    //       url: res.data.ShopPicture[0].url,
+    //       name: 'image.png',
+    //       status: 'done',
+    //     }
+    //     imgArr = [...this.state.fileList]
+    //     imgArr.push(imgItem)
+    //     this.setState({
+    //       fileList: imgArr
+    //     }, () => {
+    //       this.props.content(this.state.fileList)
+    //     })
+
+    //     document.querySelector('.loadding').style.display = "none"
+
+    //   }
+    // })
   }
 
   render() {
     return (
+      <div>
+        <ImagePicker
+          files={this.state.fileList}
+          onChange={this.uploadImg}
+          onImageClick={(index, fs) => console.log(index, fs)}
+          multiple={false}
+          disableDelete={true}
+        />
+        <div className="loadding">
+          <MyToast></MyToast>
+        </div>
 
-      <ImagePicker
-        files={this.state.fileList}
-        onChange={this.uploadImg}
-        onImageClick={(index, fs) => console.log(index, fs)}
-        multiple={false}
-      />
-
+      </div>
 
     );
   }

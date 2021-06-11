@@ -25,14 +25,14 @@ const getRequest = (method) => {
                 'activity-id': 2,
                 "encrypt": 0,
                 "sign":  window.localStorage.getItem('sign'),
-                'X-Requested-With': 'XMLHttpRequest',
+                // 'X-Requested-With': 'XMLHttpRequest',
                 'Content-Type': options.string
                     ? 'application/x-www-form-urlencoded'
                     : 'application/json',
                 ...options.headers,
 
             },
-            withCredentials:true, // 设为true,服务器才能拿到cookie
+            // withCredentials:true, // 设为true,服务器才能拿到cookie
         }).then(res=>{
             if(typeof res.data !== 'object'){
                 console.error('数据格式响应错误：', res.data)
@@ -46,6 +46,24 @@ const getRequest = (method) => {
           })
     }
 }
+
+// 照片上传
+export const upload = (option) => {
+    let url = 'https://h5.fuzhouxiaoyu.com' + option.url
+    return new Promise((resolve, reject) => {
+        fetch(url, {
+            method: 'POST',
+            body: option.data || {},
+            headers: {
+                "encrypt": 0,
+                "sign": window.localStorage.getItem('sign'),
+            }
+        }).then(res => res.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+    })
+}
+
 
 export const get = getRequest('GET')
 

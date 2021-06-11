@@ -163,6 +163,9 @@
 .p6.shop-detail .content {
   transform: translate(-50%, -50%) scale(0.85)  !important;
 }
+.p6.enroll{
+  height: 105vh !important;
+}
 .p6.enroll .bg .headline {
   padding: 0.3rem;
 }

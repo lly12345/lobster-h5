@@ -35,7 +35,8 @@ class pageEnroll extends Component {
       id: window.localStorage.getItem('shopId') || 0,
       name: window.localStorage.getItem('name') || '',
       phone: window.localStorage.getItem('tel') || '',
-      address: ''
+      address: '',
+      pictures: []
     }
   }
   componentDidMount() {
@@ -110,7 +111,7 @@ class pageEnroll extends Component {
   }
 
   handleSubmit() {
-    if (!(/^((0\d{2,3}-\d{7,8})|(1[356784]\d{9}))$/.test(this.state.phone))) {
+    if (!(/^((0\d{2,3}-\d{7,8})|(1[3456789]\d{9}))$/.test(this.state.phone))) {
       return alert("请填写正确的电话号码")
     }
     console.log(this.state);
@@ -124,6 +125,7 @@ class pageEnroll extends Component {
     window.location.href = "https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=https://h5.fuzhouxiaoyu.com/longxiajie/&key=WCBBZ-J426J-3REF5-FYGFW-KM7Q5-CAFTX&referer=myapp"
   }
 
+
   getFileList = (val) => {
     console.log(val);
     const newFileList = val.map(item => {
@@ -134,8 +136,10 @@ class pageEnroll extends Component {
     })
     this.setState({
       pictures: newFileList
+    },()=>{
+      console.log(this.state);
     })
-    console.log(newFileList);
+    
   }
 
 
