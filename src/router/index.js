@@ -1,17 +1,12 @@
 // router/index.js
-import LobsterFestival from 'pages/LobsterFestival/pageEnroll'
-// import Index from 'pages/LobsterFestival/cuxiao'
-import Index from 'pages/LobsterFestival/test'
+import Index from 'pages'
+ 
 
-
-const routes = [{
-  path: '/',
-  component: Index,
-},
-{
-  path: "/enroll",
-  component: LobsterFestival
-}
+const routes = [
+  {
+    path: "/",
+    component: Index
+  }
 ];
 
 export default routes

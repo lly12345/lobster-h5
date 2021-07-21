@@ -1,16 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import {} from 'react-router-dom'
 import App from './App'
-// import './styles/common.less'
-// import './styles/base.less'
-
-console.log(window.screen.height);
-// alert(window.screen.height)
+import 'zarm/dist/zarm.css';
 
 ReactDOM.render(
-  // <React.StrictMode>
+   
     <App />,
-  // </React.StrictMode>,
+  
   document.getElementById('root')
 )

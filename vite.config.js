@@ -7,8 +7,8 @@ import config from './config'
 
 
 // 按需加载
-// import vitePluginImp from 'vite-plugin-imp'
-import vitePluginImport from 'vite-plugin-babel-import'
+import vitePluginImp from 'vite-plugin-imp'
+// import vitePluginImport from 'vite-plugin-babel-import'
 
 
 console.log('process:::env', process.argv);
@@ -40,9 +40,10 @@ export default defineConfig({
   //   }
   // },
   server: {
+    port: 3100,
     proxy: {
       '/api': {
-        target: 'https://h5.fuzhouxiaoyu.com',
+        target: 'http://cjj.x',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
@@ -51,21 +52,12 @@ export default defineConfig({
 
   plugins: [
     reactRefresh(),
-    // vitePluginImp({
-    //   libList:[{
-    //     libName:"antd",
-    //     style:(name) => `antd/lib/${name}/style/index.less` //按需引入antd
-    //   }]
-    // })
-    vitePluginImport([
-      {
-        libraryName: 'antd-mobile',
-        libraryDirectory: 'es',
-        style(name) {
-          return `antd-mobile/lib/${name}/style/index.css`
-        },
-      },
-    ])
+    vitePluginImp({
+      libList:[{
+        libName:"zarm",
+        style:(name) => `zarm/lib/${name}/style/index.css` 
+      }]
+    })
   ],
   css:{
     preprocessorOptions:{
