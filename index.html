@@ -4,26 +4,47 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>大咖饭局</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>雪津龙虾节</title>
   <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.0/animate.min.css">
+
   <script src="https://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
-  <script src="/URLquery.js"></script>
+  <script src="https://map.qq.com/api/gljs?v=1.exp&key=WCBBZ-J426J-3REF5-FYGFW-KM7Q5-CAFTX"></script>
+  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
   <script>
-    console.log('1.1.2');
-    if (getQuery('sid')) window.localStorage.setItem('sid', getQuery('sid'))
-    if (getQuery('token')) window.localStorage.setItem('token', getQuery('token'))
-    if (getQuery('token') || window.localStorage.getItem('token')) {
-      console.log('token');
-    } else {
-       window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx569951161804e340&redirect_uri=https%3A%2F%2Fh5.fuzhouxiaoyu.com%2Fuser%2Fwx-login-code&response_type=code&scope=snsapi_userinfo&state=from:ydcj-dakafanju#wechat_redirect"
+    if ('addEventListener' in document) {
+      document.addEventListener('DOMContentLoaded', function () {
+        FastClick.attach(document.body);
+      }, false);
     }
+    if (!window.Promise) {
+      document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
+    }
+
   </script>
 </head>
 
 <body>
+  <script>
+    console.log('window.screen.availHeight',document.documentElement.clientHeight);
+    if (document.documentElement.clientHeight < 675) {
+      console.log('document.documentElement.clientHeight',document.documentElement.clientHeight);
+      document.writeln(`<link rel="stylesheet" href="./base.css">`);
+    }else if (window.screen.availHeight < 675) {
+      console.log('window.screen.availHeight',document.documentElement.clientHeight);
+      document.writeln(`<link rel="stylesheet" href="./base.css">`);
+    }
+    
+  </script>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+  <script type="text/javascript">
+    console.log(returnCitySN["cid"])
+  </script>
+
 </body>
 
 </html>

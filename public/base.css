@@ -1,0 +1,180 @@
+.p6 {
+  height: 100vh !important;
+}
+.p6 .headline .title {
+  width: 1.2rem;
+}
+.p6 .headline .logo {
+  width: 1.5rem;
+}
+.p6 .middle .beer {
+  width: 2.3rem;
+}
+.p6 .middle .lobster,
+.p6 .middle .cap {
+  transform: scale(0.8);
+}
+.p6 .middle .middle-right .right-title {
+  width: 1.5rem;
+  margin-top: 0.6rem;
+}
+.p6 .middle .middle-right .lobster-second {
+  margin-top: 0.5rem;
+}
+.p6.p6-pageOne .middle .beer {
+  left: 47% ;
+}
+.p6.pageThree .p6-conteiner {
+  width: 100vw;
+  height: 80vh;
+  transform: scale(0.85);
+  position: relative;
+  z-index: 102;
+}
+.p6.pageTwo .headline {
+  padding: 0.3rem 0.5rem;
+}
+.p6.pageTwo .headline .logo {
+  width: 1.6rem;
+  margin-top: 0.2rem;
+}
+.p6.pageTwo .container {
+  transform: scale(0.86);
+}
+.p6.pageFuJian .info .one,
+.p6.pageJiangXi .info .one,
+.p6.pageLiZhi .info .one {
+  width: 65%;
+}
+.p6.pageFuJian .info .two,
+.p6.pageJiangXi .info .two,
+.p6.pageLiZhi .info .two {
+  width: 60%;
+}
+.p6.pageFuJian .info .three,
+.p6.pageJiangXi .info .three,
+.p6.pageLiZhi .info .three {
+  max-width: 30%;
+}
+.p6.pageFuJian .info .four,
+.p6.pageJiangXi .info .four,
+.p6.pageLiZhi .info .four {
+  max-width: 45%;
+}
+.p6.pageFuJian .info .food,
+.p6.pageJiangXi .info .food,
+.p6.pageLiZhi .info .food {
+  width: 35%;
+}
+.p6.pageFuJian .middle .beer {
+  width: 3rem;
+}
+.p6.pageFuJian .middle .ml {
+  width: 1.3rem;
+  position: absolute;
+  top: -3rem;
+}
+.p6.pageJiangXi .beer {
+  width: 2rem;
+}
+.p6.pageLiZhi .beer {
+  width: 3.7rem;
+}
+.p6.cuxiao .middle .beer {
+  width: 7rem;
+}
+.p6.cuxiao .middle .middle-left {
+  position: relative;
+  animation: rightMove 3s ease, lob_rotate 3s linear 3s infinite;
+  z-index: 10;
+}
+.p6.cuxiao .middle .middle-left .lobster {
+  width: 2.5rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+.p6.cuxiao .middle .middle-left .cap {
+  width: 1rem;
+  position: absolute;
+  top: -0.2rem;
+  left: 1.9rem;
+  z-index: 1;
+}
+.p6.cuxiao footer {
+  bottom: 3.8rem;
+}
+.p6.cuxiao .footer-detail {
+  height: 44vh;
+}
+.p6.cuxiao .footer-detail .left .flag {
+  width: 1.8rem;
+  margin: 0 auto 0;
+}
+.p6.cuxiao .footer-detail .left .activity {
+  width: 3.8rem;
+  margin-bottom: 1rem;
+}
+.p6.cuxiao .footer-detail .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  align-items: flex-end;
+}
+.p6.cuxiao .footer-detail .right .box {
+  width: 4rem;
+  position: relative;
+  left: -0.6rem;
+  top: 1.6rem;
+}
+.p6.gift .middle {
+  background-position-y: 0  !important;
+}
+.p6.gift .p6-conteiner {
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0.85);
+  position: relative;
+  z-index: 102;
+}
+.p6.gift .p6-conteiner .content {
+  margin-top: 2.6rem;
+}
+.p6.pageDouYin .content {
+  width: 5.2rem !important;
+  margin-top: 0.1rem;
+}
+.p6.pageDouYin .content .detail h2 {
+  font-size: 18px;
+  line-height: 0.5rem;
+}
+.p6.pageDouYin .middle {
+  background-position-y: 4rem;
+}
+.p6.pageDouYin .middle .beer {
+  width: 2.5rem;
+}
+.p6.shop-detail .bg .middle {
+  background-position-y: 5rem;
+}
+.p6.shop-detail .bg .middle .beer {
+  width: 2.5rem;
+}
+.p6.shop-detail .content {
+  transform: translate(-50%, -50%) scale(0.85)  !important;
+}
+.p6.enroll{
+  height: 105vh !important;
+}
+.p6.enroll .bg .headline {
+  padding: 0.3rem;
+}
+.p6.enroll .bg .headline .logo {
+  width: 1.7rem;
+}
+.p6.enroll .bg .middle {
+  background-position-y: 5rem;
+}
+.p6.enroll .bg .middle .beer {
+  width: 2.3rem;
+}

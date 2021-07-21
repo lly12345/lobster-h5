@@ -1,0 +1,175 @@
+.page{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    overflow: hidden;
+    background-image: linear-gradient( #063967 30%,  #a0d3b8);
+    background-position: center;
+    background-size: 100% 100%;
+    .headline{
+        width: 100%;
+        padding: .5rem;
+        box-sizing: border-box;
+        display:  flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .title{
+            width: 1.6rem;
+        }
+        .logo{
+            width: 1.8rem;  
+        }
+    }
+    .middle{
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: .2rem;
+        box-sizing: border-box;
+        position: relative;
+        background: url('@/assets/lobster/shan.png') no-repeat;
+        background-size: 100%;
+        background-position-y: 7rem;
+        overflow: visible;
+        .beer{
+            width: 2.8rem; 
+            margin-bottom: 1.2rem;
+            box-sizing: border-box; 
+            position: absolute;
+            left: 50%;
+            bottom: 0rem;
+            transform: translateX(-52%);
+            z-index: 0;
+        }
+
+    }
+    .spindrift{
+        position: absolute;
+        width: 100%;
+        height: 4rem;
+        bottom: 2rem;
+        z-index: 99;
+        img{
+            position: absolute;
+            width: 100%;
+        }
+        
+        .spindrift2{
+            bottom: 1rem;
+        }
+        
+    }
+    footer{
+        width: 100%;
+        position: absolute;
+        bottom: .4rem;
+        img{
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transform: scale(1.9);
+        }
+        .wave1{
+            z-index: 3;
+            bottom: 0;
+            animation: wave1 4.5s linear  infinite;
+        }
+        .wave2{
+            z-index: 2;
+            animation: wave2 5s linear  infinite;
+        }
+        .wave3{
+            z-index: 0;
+            bottom: -.5rem;
+            
+            transform: translateY(-6px);
+            animation: wave3 4s linear  infinite;
+        }
+    }
+    
+    
+}
+
+
+@keyframes lob_rotate {
+    0%   {
+        transform:rotate(0);
+    }
+    25%  {
+        transform:rotate(5deg);
+    }
+    75% {
+        transform:rotate(-5deg);
+    }
+    100%{
+        transform:rotate(0);
+    }
+}
+
+@keyframes rightMove {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(0);
+    }
+    
+}
+
+
+@keyframes animation_rotate {
+    from {
+        transform: rotate(0);
+        transform-origin: center;
+    }
+    to {
+        transform: rotate(-30deg);
+        transform-origin: center;
+    }
+}
+
+@keyframes wave1 {
+    0%   {
+        transform:scale(1.9) translate(0);
+    }
+    50%  {
+        transform:scale(1.9) translate(15px,10px);
+    }
+    100% {
+        transform:scale(1.9) translate(0);
+    }
+}
+@keyframes wave2 {
+    0%   {
+        transform:scale(1.9) translate(0);
+    }
+    50%  {
+        transform:scale(1.9) translate(15px,10px);
+    }
+    70%  {
+        transform:scale(1.9) translate(0px,10px);
+    }
+    100% {
+        transform:scale(1.9) translate(0);
+    }
+}
+
+@keyframes wave3 {
+    0%   {
+        transform:scale(1.9) translateY(-6px);
+    }
+    50%  {
+        transform:scale(1.9) translate(-10px,5px);
+    }
+    100% {
+        transform:scale(1.9) translateY(-6px);
+    }
+}
+

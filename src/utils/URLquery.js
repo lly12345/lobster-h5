@@ -1,5 +1,6 @@
-export const  getQuery = (variable)=>{
+export const  getQueryVariable = (variable)=>{
     var query = decodeURIComponent(window.location.search).substring(1)
+    console.log(query);
     var vars = query.split("&");
     for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");

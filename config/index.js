@@ -9,6 +9,6 @@ export default {
     },
     release: {
         cdn: './', // 正式环境 cdn 路径
-        apiBaseUrl: 'https://cjjapi.fuzhouxiaoyu.com' // 正式环境接口地址
+        apiBaseUrl: 'https://h5.fuzhouxiaoyu.com' // 正式环境接口地址
     }
 }
